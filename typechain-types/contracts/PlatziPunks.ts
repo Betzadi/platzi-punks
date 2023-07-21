@@ -28,7 +28,22 @@ export interface PlatziPunksInterface extends Interface {
     nameOrSignature:
       | "approve"
       | "balanceOf"
+      | "deterministicPseudoRandomDNA"
+      | "getAccessoriesType"
       | "getApproved"
+      | "getClotheColor"
+      | "getClotheType"
+      | "getEyeBrowType"
+      | "getEyeType"
+      | "getFacialHairColor"
+      | "getFacialHairType"
+      | "getGraphicType"
+      | "getHairColor"
+      | "getHatColor"
+      | "getMouthType"
+      | "getSkinColor"
+      | "getTopType"
+      | "imageByDNA"
       | "isApprovedForAll"
       | "maxSupply"
       | "mint"
@@ -40,6 +55,7 @@ export interface PlatziPunksInterface extends Interface {
       | "supportsInterface"
       | "symbol"
       | "tokenByIndex"
+      | "tokenDNA"
       | "tokenOfOwnerByIndex"
       | "tokenURI"
       | "totalSupply"
@@ -59,7 +75,67 @@ export interface PlatziPunksInterface extends Interface {
     values: [AddressLike]
   ): string;
   encodeFunctionData(
+    functionFragment: "deterministicPseudoRandomDNA",
+    values: [BigNumberish, AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getAccessoriesType",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
     functionFragment: "getApproved",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getClotheColor",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getClotheType",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getEyeBrowType",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getEyeType",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getFacialHairColor",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getFacialHairType",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getGraphicType",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getHairColor",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getHatColor",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getMouthType",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getSkinColor",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getTopType",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "imageByDNA",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
@@ -95,6 +171,10 @@ export interface PlatziPunksInterface extends Interface {
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
+    functionFragment: "tokenDNA",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
     functionFragment: "tokenOfOwnerByIndex",
     values: [AddressLike, BigNumberish]
   ): string;
@@ -114,9 +194,60 @@ export interface PlatziPunksInterface extends Interface {
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
   decodeFunctionResult(
+    functionFragment: "deterministicPseudoRandomDNA",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getAccessoriesType",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "getApproved",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(
+    functionFragment: "getClotheColor",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getClotheType",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getEyeBrowType",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "getEyeType", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "getFacialHairColor",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getFacialHairType",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getGraphicType",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getHairColor",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getHatColor",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getMouthType",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getSkinColor",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "getTopType", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "imageByDNA", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "isApprovedForAll",
     data: BytesLike
@@ -146,6 +277,7 @@ export interface PlatziPunksInterface extends Interface {
     functionFragment: "tokenByIndex",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "tokenDNA", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "tokenOfOwnerByIndex",
     data: BytesLike
@@ -270,7 +402,53 @@ export interface PlatziPunks extends BaseContract {
 
   balanceOf: TypedContractMethod<[owner: AddressLike], [bigint], "view">;
 
+  deterministicPseudoRandomDNA: TypedContractMethod<
+    [_tokenId: BigNumberish, _minter: AddressLike],
+    [bigint],
+    "view"
+  >;
+
+  getAccessoriesType: TypedContractMethod<
+    [_dna: BigNumberish],
+    [string],
+    "view"
+  >;
+
   getApproved: TypedContractMethod<[tokenId: BigNumberish], [string], "view">;
+
+  getClotheColor: TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+
+  getClotheType: TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+
+  getEyeBrowType: TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+
+  getEyeType: TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+
+  getFacialHairColor: TypedContractMethod<
+    [_dna: BigNumberish],
+    [string],
+    "view"
+  >;
+
+  getFacialHairType: TypedContractMethod<
+    [_dna: BigNumberish],
+    [string],
+    "view"
+  >;
+
+  getGraphicType: TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+
+  getHairColor: TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+
+  getHatColor: TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+
+  getMouthType: TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+
+  getSkinColor: TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+
+  getTopType: TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+
+  imageByDNA: TypedContractMethod<[_dna: BigNumberish], [string], "view">;
 
   isApprovedForAll: TypedContractMethod<
     [owner: AddressLike, operator: AddressLike],
@@ -319,6 +497,8 @@ export interface PlatziPunks extends BaseContract {
 
   tokenByIndex: TypedContractMethod<[index: BigNumberish], [bigint], "view">;
 
+  tokenDNA: TypedContractMethod<[arg0: BigNumberish], [bigint], "view">;
+
   tokenOfOwnerByIndex: TypedContractMethod<
     [owner: AddressLike, index: BigNumberish],
     [bigint],
@@ -350,8 +530,57 @@ export interface PlatziPunks extends BaseContract {
     nameOrSignature: "balanceOf"
   ): TypedContractMethod<[owner: AddressLike], [bigint], "view">;
   getFunction(
+    nameOrSignature: "deterministicPseudoRandomDNA"
+  ): TypedContractMethod<
+    [_tokenId: BigNumberish, _minter: AddressLike],
+    [bigint],
+    "view"
+  >;
+  getFunction(
+    nameOrSignature: "getAccessoriesType"
+  ): TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+  getFunction(
     nameOrSignature: "getApproved"
   ): TypedContractMethod<[tokenId: BigNumberish], [string], "view">;
+  getFunction(
+    nameOrSignature: "getClotheColor"
+  ): TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+  getFunction(
+    nameOrSignature: "getClotheType"
+  ): TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+  getFunction(
+    nameOrSignature: "getEyeBrowType"
+  ): TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+  getFunction(
+    nameOrSignature: "getEyeType"
+  ): TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+  getFunction(
+    nameOrSignature: "getFacialHairColor"
+  ): TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+  getFunction(
+    nameOrSignature: "getFacialHairType"
+  ): TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+  getFunction(
+    nameOrSignature: "getGraphicType"
+  ): TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+  getFunction(
+    nameOrSignature: "getHairColor"
+  ): TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+  getFunction(
+    nameOrSignature: "getHatColor"
+  ): TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+  getFunction(
+    nameOrSignature: "getMouthType"
+  ): TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+  getFunction(
+    nameOrSignature: "getSkinColor"
+  ): TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+  getFunction(
+    nameOrSignature: "getTopType"
+  ): TypedContractMethod<[_dna: BigNumberish], [string], "view">;
+  getFunction(
+    nameOrSignature: "imageByDNA"
+  ): TypedContractMethod<[_dna: BigNumberish], [string], "view">;
   getFunction(
     nameOrSignature: "isApprovedForAll"
   ): TypedContractMethod<
@@ -406,6 +635,9 @@ export interface PlatziPunks extends BaseContract {
   getFunction(
     nameOrSignature: "tokenByIndex"
   ): TypedContractMethod<[index: BigNumberish], [bigint], "view">;
+  getFunction(
+    nameOrSignature: "tokenDNA"
+  ): TypedContractMethod<[arg0: BigNumberish], [bigint], "view">;
   getFunction(
     nameOrSignature: "tokenOfOwnerByIndex"
   ): TypedContractMethod<

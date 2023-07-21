@@ -24,3 +24,5 @@ export type { IERC165 } from "./@openzeppelin/contracts/utils/introspection/IERC
 export { IERC165__factory } from "./factories/@openzeppelin/contracts/utils/introspection/IERC165__factory";
 export type { PlatziPunks } from "./contracts/PlatziPunks";
 export { PlatziPunks__factory } from "./factories/contracts/PlatziPunks__factory";
+export type { PlatziPunksDNA } from "./contracts/PlatziPunksDNA";
+export { PlatziPunksDNA__factory } from "./factories/contracts/PlatziPunksDNA__factory";

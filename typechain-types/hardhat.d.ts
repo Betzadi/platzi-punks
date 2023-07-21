@@ -48,6 +48,10 @@ declare module "hardhat/types/runtime" {
       name: "PlatziPunks",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.PlatziPunks__factory>;
+    getContractFactory(
+      name: "PlatziPunksDNA",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.PlatziPunksDNA__factory>;
 
     getContractAt(
       name: "ERC721",
@@ -94,6 +98,11 @@ declare module "hardhat/types/runtime" {
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.PlatziPunks>;
+    getContractAt(
+      name: "PlatziPunksDNA",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.PlatziPunksDNA>;
 
     deployContract(
       name: "ERC721",
@@ -131,6 +140,10 @@ declare module "hardhat/types/runtime" {
       name: "PlatziPunks",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.PlatziPunks>;
+    deployContract(
+      name: "PlatziPunksDNA",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.PlatziPunksDNA>;
 
     deployContract(
       name: "ERC721",
@@ -177,6 +190,11 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.PlatziPunks>;
+    deployContract(
+      name: "PlatziPunksDNA",
+      args: any[],
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.PlatziPunksDNA>;
 
     // default types
     getContractFactory(
